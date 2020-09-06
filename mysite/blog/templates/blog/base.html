@@ -1,0 +1,35 @@
+{% load blog_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link href="{% static 'css/blog1.css' %}" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div id="sidebar">
+            <h2><a href="/blog" id="navtitle">A<span>P</span>olitical <span>P</span>olitics</a></h2>
+            <p><span>Truth</span> does not belong to a political party.</p>
+            <p>{% total_posts %} articles written so far...</p>
+            <p>
+                <a href="{% url 'blog:post_feed' %}">Subscribe to our RSS feed</a>
+            </p>
+            <div class="latest_art">
+                <h3>Latest Articles</h3>
+                {% show_latest_posts 5 %}
+            </div>
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Politics</a></li>
+                <li><a href="#">Decision 2020</a></li>
+            </ul>
+        </div>
+        <div id="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

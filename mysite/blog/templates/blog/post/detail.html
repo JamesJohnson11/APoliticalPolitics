@@ -1,0 +1,45 @@
+{% extends "blog/base.html" %}
+
+{% load blog_tags %}
+
+{% block title %}
+{{ post.title }}
+{% endblock %}
+
+{% block content %}
+    <div class="detail_post">
+        <h1>{{ post.title }}</h1>
+        <p class="date">Published {{ post.publish }} by {{ post.author }}</p>
+        {{ post.body|markdown }}
+        {% with comments.count as total_comments %}
+        <h2 id="comment_count">
+            {{ total_comments }} comment{{ total_comments|pluralize }}
+        </h2>
+        {% endwith %}
+        {% for comment in comments %}
+            <div class="comment">
+                <p class="info">
+                    Comment {{ forloop.counter }} by {{ comment.name }}
+                    {{ comment.created }}
+                </p>
+                {{ comment.body|linebreaks }}
+                <hr>
+            </div>
+        {% empty %}
+                <p>There are no comments yet.</p>
+                <hr>
+        {% endfor %}
+        {% if new_comment %}
+            <h2>Your comment has been added.</h2>
+        {% else %}
+            <div class="blank_comment">
+                <h2>Leave a comment</h2>
+                <form method="post">
+                    {{ comment_form.as_p }}
+                    {% csrf_token %}
+                    <p><input type="submit" value="Add comment"></p>
+                </form>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

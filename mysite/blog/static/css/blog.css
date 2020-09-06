@@ -1,0 +1,130 @@
+#sidebar {
+    background-color: #000b4fa4;
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 350px; /* Set the width of the sidebar */
+    float: left;
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+    color: #EBEBEB;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-shadow: 25px 120px #829CD0;
+}
+
+#sidebar h2 {
+    font-size: 3.2em;
+    text-align: center;
+}
+
+.nav {
+    z-index: 1;
+    background-color: #000b4f;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    height: 80px;
+}
+
+.nav li {
+    font-size: 1.5em;
+    display: inline;
+    margin: 9%;
+}
+
+.latest_art ul {
+    border-left: 3px solid #EBEBEB;
+}
+
+a {
+    color: #829CD0;
+    text-shadow: .5px .5px #EBEBEB;;
+    text-decoration: none;
+}
+
+div h2 a {
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#navtitle {
+    color: #EBEBEB;
+    letter-spacing: .2em;
+}
+
+body {
+    background: url(/static/img/capitol.jpg) no-repeat center center fixed;
+    background-color: #EBEBEB;
+    height: 100%;
+    margin-left: 370px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Fjalla One', sans-serif;
+}
+
+li {
+    list-style: none;
+    margin-right: 20px;
+    padding: 5px;
+}
+
+.date {
+    color: #20368F;
+}
+
+span {
+    color: #829CD0;
+}
+
+.all-posts {
+    margin-top: 70px;
+    position: absolute;
+    overflow-x: hidden;
+    width: 1000px;
+    min-height: 100vh;
+    background-color: rgba(255, 255, 255, 0.801);
+    padding-left: 40px;
+    padding-right: 30px;
+}
+
+.detail_post {
+    margin-top: 70px;
+    position: absolute;
+    overflow-x: hidden;
+    width: 1000px;
+    min-height: 100vh;
+    background-color: rgba(255, 255, 255, 0.801);
+    padding-left: 40px;
+    padding-right: 30px;
+}
+
+.latest_art {
+    position: fixed;
+    margin-top: 100px;
+}
+
+#comment_count {
+    margin-top: 150px;
+}
+
+h1 {
+    padding-top: 15px;
+    text-align: center;
+    width: 100%;
+    color: black;
+    font-family: 'Fjalla One', sans-serif;
+}
+
+.post-content {
+    color: black;
+}
+
+p {
+    margin-bottom: 40px;
+    font-family: 'Montserrat', sans-serif;
+}
