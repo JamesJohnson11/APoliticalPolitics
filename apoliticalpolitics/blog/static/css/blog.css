@@ -1,42 +1,68 @@
-#sidebar {
-    background-color: #000b4fa4;
-    height: 100%; /* Full-height: remove this if you want "auto" height */
-    width: 350px; /* Set the width of the sidebar */
-    float: left;
-    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
-    left: 0;
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 20px;
-    color: #EBEBEB;
-    padding-left: 10px;
-    padding-right: 10px;
-    box-shadow: 25px 120px #829CD0;
+body {
+    background: url(/static/img/capitol.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: .45fr repeat(2, 1fr);
+    grid-template-rows: .1fr repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    grid-template-areas: 
+        "sidebar header header"
+        "sidebar main main"
+        "sidebar main main";
+    margin: 0;
+    margin-bottom: 0;
+    height: 100vh;
+    background-color: #EBEBEB;
+    font-family: 'Fjalla One', sans-serif;
 }
 
-#sidebar h2 {
-    font-size: 3.2em;
-    text-align: center;
-}
 
-.nav {
+.nav { 
+    grid-area: header;
     z-index: 1;
     background-color: #000b4f;
-    position: fixed;
-    width: 100%;
-    top: 0;
     height: 80px;
+    width: auto;
+}
+
+.nav ul {
+    margin-left: 60%;
+    /*margin-right: 5%;*/
 }
 
 .nav li {
     font-size: 1.5em;
-    display: inline;
-    margin: 9%;
+    display: inline-block;
+    border: 3px solid #EBEBEB;
+    margin-right: 3%;
+    padding: 10px;
 }
 
-.latest_art ul {
-    border-left: 3px solid #EBEBEB;
+.nav li:hover {
+    font-size: 1.5em;
+    display: inline-block;
+    border: 3px solid #829CD0;
+    box-shadow: 3px 2px #EBEBEB;
+    background-color: #EBEBEB;
+}
+
+.nav a:hover {
+    text-shadow: 1px 1px #000b4f;
+}
+
+li {
+    list-style: none;
+    padding: 5px;
+}
+
+#navtitle {
+    color: #EBEBEB;
+    letter-spacing: .2em;
+    font-family: 'Montserrat', sans-serif;
 }
 
 a {
@@ -50,81 +76,87 @@ div h2 a {
     font-family: 'Montserrat', sans-serif;
 }
 
-#navtitle {
-    color: #EBEBEB;
-    letter-spacing: .2em;
-}
-
-body {
-    background: url(/static/img/capitol.jpg) no-repeat center center fixed;
-    background-color: #EBEBEB;
-    height: 100%;
-    margin-left: 370px;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    font-family: 'Fjalla One', sans-serif;
-}
-
-li {
-    list-style: none;
-    margin-right: 20px;
-    padding: 5px;
-}
-
-.date {
-    color: #20368F;
-}
-
-span {
-    color: #829CD0;
-}
-
-.all-posts {
-    margin-top: 70px;
-    position: absolute;
-    overflow-x: hidden;
-    width: 1000px;
-    min-height: 100vh;
+#content {
+    grid-area: main;
     background-color: rgba(255, 255, 255, 0.801);
     padding-left: 40px;
     padding-right: 30px;
-}
-
-.detail_post {
-    margin-top: 70px;
-    position: absolute;
-    overflow-x: hidden;
-    width: 1000px;
-    min-height: 100vh;
-    background-color: rgba(255, 255, 255, 0.801);
-    padding-left: 40px;
-    padding-right: 30px;
-}
-
-.latest_art {
-    position: fixed;
-    margin-top: 100px;
-}
-
-#comment_count {
-    margin-top: 150px;
-}
-
-h1 {
-    padding-top: 15px;
-    text-align: center;
-    width: 100%;
-    color: black;
-    font-family: 'Fjalla One', sans-serif;
+    padding-top: 12px;
+    overflow: scroll;
 }
 
 .post-content {
     color: black;
 }
 
+#comment_count {
+    margin-top: 150px;
+}
+
+.date {
+    color: #20368F;
+}
+
+#sidebar {
+    grid-area: sidebar;
+    background-color: #000b4fa4;
+    box-shadow: 25px 125px #829cd085;
+    color: #EBEBEB;
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    z-index: 1;
+}
+
+#sidebar h2 {
+    font-size: 3.2em;
+    text-align: center;
+}
+
+span {
+    color: #829CD0;
+}
+
+.latest_art {
+    margin-top: 160px;
+}
+
+.latest_art ul {
+    border-left: 3px solid #EBEBEB;
+}
+
+h1 {
+    text-align: center;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+}
+
 p {
     margin-bottom: 40px;
     font-family: 'Montserrat', sans-serif;
 }
+
+.info {
+    margin: 0;
+}
+
+.detail_post, .all-posts {
+    height: 100vh;
+    margin: 3%;
+}
+
+.current {
+    color: #323232;
+}
+
+.pagination-link {
+    color: #6D6D6D;
+}
+
+
+
+
+
+
+
+
