@@ -4,6 +4,22 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.views.generic import ListView
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
 from .forms import CommentForm, SearchForm
+from rcp import get_polls
+
+from rcp import get_poll_data
+from prettytable import PrettyTable
+
+
+td = get_poll_data(
+'https://www.realclearpolitics.com/epolls/2020/president/nc/north_carolina_trump_vs_biden-6744.html')
+
+field_names = list(td[0]["data"][0].keys())
+field_values = list(td[0]["data"][0].values())
+
+
+#for row in td[0]["data"]:
+#    x.add_row(row.values())
+#print(x)
 
 
 def post_share(request, post_id):
@@ -56,3 +72,26 @@ def post_search(request):
     return render(request, 'blog/post/search.html', {'form': form, 'query': query, 'results': results})
 
 
+
+battleground_states = [
+    "Wisconsin",
+    "Florida",
+    "Pennsylvania",
+    "Georgia",
+    "North Carolina",
+]
+
+
+def poll_results(request):
+    for state in battleground_states:
+        polls = get_polls(candidate="Trump", state=state)
+        for poll in polls:
+            title = poll['poll'] 
+            result = poll['result']
+            print(title)
+            print(result)
+        print(state)
+        print(field_values)
+            
+            
+    return render(request, 'blog/polls.html', {'battleground_states': battleground_states, 'polls': polls, 'field_names': field_names, 'field_values': field_values})

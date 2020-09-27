@@ -22,10 +22,10 @@
         </div>
         <div class="nav">
             <ul>
-                <li><a href="blog/">All Articles</a></li>
+                <li><a href="/blog">All Articles</a></li>
                 <li><a href="#">Politics</a></li>
-                <li><a href="#">Decision 2020</a></li>
-                <li><a href="/blog/search/">Search</a></li>
+                <li><a href="{% url 'blog:poll_results' %}">Decision 2020</a></li>
+                <li><a href="{% url 'blog:post_search' %}">Search</a></li>
             </ul>
         </div>
         <div id="content">

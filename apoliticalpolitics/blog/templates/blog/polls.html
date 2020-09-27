@@ -1,0 +1,53 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    {% for state in battleground_states %}
+        <h2>{{state}}: Biden vs. Trump</h2>
+        <table>
+            <tr>
+              <th>Poll Name</th>
+              <th>Results</th>
+            </tr>
+            {% if state == 'Wisconsin' %}
+                {% for poll in polls %}
+                <tr>
+                    <td>{{poll.poll}}</td>
+                    <td>{{poll.result}}</td>
+                </tr>
+                {% endfor %}
+            {% elif state == 'Florida' %}
+                {% for poll in polls %}
+                <tr>
+                    <td>{{poll.poll}}</td>
+                    <td>{{poll.result}}</td>
+                </tr>
+                {% endfor %}
+            {% endif %}
+        </table>
+        {% endfor %}
+        <table>
+            {% for name in field_names %}
+            <th>{{name}}</th>
+            {% endfor %}
+                <tr>
+                    {% for value in field_values %}
+                    <td>{{ value }}</td>
+                    {% endfor %}
+                </tr>
+        </table>
+
+{% endblock %}
+
+
+
+
+
+
+<!--
+{% for state in battleground_states %}
+<h2>{{title}}</h2>
+{% endfor %}
+{% for poll in polls %}
+
+ 
+{% endfor %}

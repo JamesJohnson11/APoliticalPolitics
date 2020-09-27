@@ -153,6 +153,11 @@ p {
     color: #6D6D6D;
 }
 
+table, th, td {
+    border: 1px solid black;
+  }
+
+
 
 
 
